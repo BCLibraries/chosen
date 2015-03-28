@@ -169,6 +169,8 @@ class AbstractChosen
 
         unless option.group and not @group_search
           option.search_match = this.search_string_match(option.search_text, regex)
+          if searchText.length and option.classes == "duplicate"
+            option.search_match = false
           results += 1 if option.search_match and not option.group
 
           if option.search_match
